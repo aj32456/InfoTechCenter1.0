@@ -1,27 +1,68 @@
-import sys  # Importing sys to access system-specific parameters and functions
-import time  # Importing time to control timing functions like sleep
+import sys
+import time
+import random
 
-print("\n\tWelcome to InfoTechCenter v1.0")  # Display a welcome message with a tab for formatting
+# ANSI color codes for various colors
+colors = [
+    "\033[91m",  # Red
+    "\033[92m",  # Green
+    "\033[93m",  # Yellow
+    "\033[94m",  # Blue
+    "\033[95m",  # Purple (Bright Magenta)
+    "\033[96m",  # Cyan
+    "\033[97m"  # White
+]
+reset_color = "\033[0m"  # Reset to default color
 
-x = 0  # Counter to control the loop
-ellipses = 0  # Counter for the number of dots in the boot message
+# Welcome message with each letter in a different random color
+welcome_message = "Welcome to InfoTechCenter v1.0"
+colored_welcome_message = []
 
-# A loop that simulates the system booting process
+# Loop through each letter and apply a random color
+for letter in welcome_message:
+    random_color = random.choice(colors)
+    colored_welcome_message.append(f"{random_color}{letter}{reset_color}")
+
+# Join the letters back together and print the colored welcome message
+colored_welcome_message = ''.join(colored_welcome_message)
+print(f"\n\t{colored_welcome_message}")  # The welcome message with each letter in a different color
+
+x = 0
+ellipses = 0
+
+# Simulate the booting process with different colors
 while x != 20:
-    x += 1  # Increment the counter 'x' on each iteration
-    # Create a message that shows booting status with an increasing number of dots
-    message = ("InfoTech Center System Booting" + "." * ellipses)
-    ellipses += 1  # Increment the number of ellipses (dots)
+    x += 1
 
-    # Print the message on the same line using sys.stdout.write and carriage return '\r' to overwrite the line
+    # Randomly select a color for each iteration
+    random_color = random.choice(colors)
+
+    # Create the booting message with random color and ellipses
+    message = (f"{random_color}InfoTech Center System Booting" + "." * ellipses + reset_color)
+    ellipses += 1
+
+    # Print the message with the random color on the same line
     sys.stdout.write("\r" + message)
 
-    time.sleep(0.5)  # Pause the execution for 0.5 seconds to create the booting effect
+    time.sleep(0.5)
 
-    # Reset ellipses after 3 dots, so it cycles from 0 to 3
     if ellipses == 4:
         ellipses = 0
 
-    # When the loop reaches 20 iterations, print the final message
+    # After 20 iterations, print the final message
     if x == 20:
-        print("\n\n\n OS Booted Up - Retina Scanned - Access Granted")
+        final_message = "OS Booted Up - Retina Scanned - Access Granted"
+        words = final_message.split()  # Split the final message into words
+        colored_message = []
+
+        # Loop through words and apply random colors to every other word
+        for i, word in enumerate(words):
+            if i % 2 == 0:
+                colored_message.append(word)
+            else:
+                random_color = random.choice(colors)
+                colored_message.append(f"{random_color}{word}{reset_color}")
+
+        # Join the words back into a sentence
+        colored_message = " ".join(colored_message)
+        print(f"\n\n\n{colored_message}")  # Print the final message with alternating colors
