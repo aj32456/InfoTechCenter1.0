@@ -18,6 +18,9 @@ reset_color = "\033[0m"  # Reset to default color
 welcome_message = "Welcome to InfoTechCenter v1.0"
 colored_welcome_message = []
 
+
+
+
 # Loop through each letter and apply a random color
 for letter in welcome_message:
     random_color = random.choice(colors)
@@ -26,6 +29,9 @@ for letter in welcome_message:
 # Join the letters back together and print the colored welcome message
 colored_welcome_message = ''.join(colored_welcome_message)
 print(f"\n\t{colored_welcome_message}")  # The welcome message with each letter in a different color
+
+timeToSleep = 3 #Variable to set the time library to 3 seconds when called
+time.sleep(timeToSleep) #Calling the time to sleep library with the variable timeToSleep value
 
 x = 0
 ellipses = 0
@@ -66,3 +72,5 @@ while x != 20:
         # Join the words back into a sentence
         colored_message = " ".join(colored_message)
         print(f"\n\n\n{colored_message}")  # Print the final message with alternating colors
+
+
