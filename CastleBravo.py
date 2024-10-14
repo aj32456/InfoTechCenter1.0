@@ -7,8 +7,17 @@ import random
 from time import sleep
 
 def weather():
-    weatherForecast = ["snowing","blizzard","rainy","windy","icy","Sunny"]
+    weatherForecast = ["snowy","blizzard","rainy","windy","icy","Sunny"]
     weatherCondition = random.choice(weatherForecast)
     return weatherCondition
 
-print(weather())
+
+
+weatherAlert = weather()
+
+def vehicleResponseSystem():
+    if weatherAlert == "snowy":
+        print("\n The National Weather Service has updated alarm by 30 minutes because"
+              " of the Forecast of", weatherAlert, "weather conditions.")
+
+vehicleResponseSystem()
