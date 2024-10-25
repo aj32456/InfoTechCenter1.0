@@ -112,15 +112,15 @@ def vehicleResponseSystem():
     # Check if the weather condition is in the dictionary
     if weatherAlert in weather_conditions:
         condition = weather_conditions[weatherAlert]
-        print(f"\nThe National Weather Service has updated alarm by {condition['delay']} minutes because"
-              f" of the Forecast of {weatherAlert} weather conditions.")
+        print(f"\nThe National Weather Service has delayed your alarm by {condition['delay']} minutes because"
+              f" of the Forecasted {weatherAlert} weather conditions.")
         sleep(1)
-        print(f"\nVRS System Has Been Engaged, Only Allowing You to Drive {condition['speed_limit']}-MPH.")
+        print(f"\nVRS System Has Been Engaged, restricting you to {condition['speed_limit']}-MPH.")
     else:
         # Handle clear or unlisted weather conditions
-        print(f"\nThe National Weather Service is Calling for {weatherAlert} Skies, Drive Carefully to get to your Destination!")
+        print(f"\nThe National Weather Services has Called for {weatherAlert} Weather Conditions, Drive Carefully to get to your Destination!")
         sleep(1)
-        print("\nVRS System Has Been Disengaged.")
+        print("\nVRS System Has  Disengaged.")
 
 
 # Call the vehicle response system function to output the appropriate response
